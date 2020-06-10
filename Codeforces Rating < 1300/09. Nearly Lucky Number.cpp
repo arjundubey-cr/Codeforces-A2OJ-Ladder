@@ -1,30 +1,27 @@
 #include <iostream>
-using namespace std;
 
-int solve()
-{
-	string s;
-	cin>>s;
-	int size=s.size();
-	for(int i=0;i<size;i++)
-	{
-		if(s[i]!='4'||s[i]!='7')
-		{
-			return 0;
-		}
-	}
-	return 1;
-	
-}
+using namespace std;
 
 int main()
 {
-	int val = solve();
-	if(!val)
-	{
-		cout<<"NO\n";
-	}
-	else{
-		cout<<"YES\n";
-	}
+    long long n;
+    cin >> n;
+    int count = 0;
+    while (n != 0)
+    {
+        if (n % 10 == 4 || n % 10 == 7)
+        {
+            count += 1;
+        }
+        n /= 10;
+    }
+    if (count == 4 || count == 7)
+    {
+        cout << "YES" << endl;
+    }
+    else
+    {
+        cout << "NO" << endl;
+    }
+    return 0;
 }
