@@ -4,21 +4,27 @@ using namespace std;
 
 void solve()
 {
-	string b;
-	cin>>b;
-	string a=b.substr(0,2);
-	int len=b.size();
-	for(int i=3; i<len; i+=2)
+	int n;
+	int rightopen(0), rightclosed(0), leftopen(0), leftclosed(0);
+	cin>>n;
+	while(n--)
 	{
-		a+=b[i];
+		int x,y;
+		cin>>x>>y;
+		if(x==0)	rightopen++;
+		else if(x==1)	rightclosed++;
+		if(y==0)	leftopen++;
+		else if(y==1)	leftclosed++;
 	}
-	cout<<a<<endl;
+	int a=min(rightopen, rightclosed);
+	int b=min(leftopen, leftclosed);
+	cout<<a+b<<"\n";
 }
 
 int main()
 {
-	int t;
-	cin>>t;
-	while(--t)
-		solve();
+	ios_base::sync_with_stdio(false);
+	cin.tie(0);
+	cout.tie(0);
+	solve();
 }
