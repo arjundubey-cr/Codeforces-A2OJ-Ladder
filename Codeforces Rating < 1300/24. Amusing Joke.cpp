@@ -4,17 +4,17 @@ using namespace std;
 
 void solve()
 {
-	int exited, boarded, passengerCount(0);
-	int maxValue=INT_MIN;
-	int t;
-	cin>>t;
-	while(t--)
+	string s1, s2, s3;
+	cin>>s1>>s2>>s3;
+	string s4=s1+s2;
+	sort(s4.begin(), s4.end());
+	sort(s3.begin(), s3.end());
+	if(s3==s4)
+		cout<<"YES";
+	else
 	{
-		cin>>exited>>boarded;
-		passengerCount+=boarded-exited;
-		passengerCount>maxValue?maxValue=passengerCount:maxValue=maxValue;
+		cout<<"NO";
 	}
-	cout<<maxValue<<"\n";
 }
 
 int main()
