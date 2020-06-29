@@ -4,19 +4,22 @@ using namespace std;
 
 void solve()
 {
-	int n,k,l,c,d,p,nl,np;
-	cin>>n>>k>>l>>c>>d>>p>>nl>>np;
-	//int totalSlice=c*d;
-	int totalDrink=k*l;
-	//int counter=0;
-	
-	int drink=totalDrink/n;
-	int limes=c*d;
-	int salt=p/np;
-	
-	int toastValue=min(min(drink, limes), min(drink, salt));
-	
-	cout<<toastValue/n;
+	int n,m;
+	cin>>n>>m;
+	int i;
+    int now=1;
+    int maxi=0;
+    for (i=1;i<=n;i++)
+    {
+        int x;
+        cin>>x;
+        if ((x-1)/m+1>=maxi)
+        {
+            maxi=(x-1)/m+1;
+            now=i;
+        }
+    }
+    cout<<now<<endl;
 }
 
 int main()
