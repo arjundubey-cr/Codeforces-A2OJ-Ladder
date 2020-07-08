@@ -1,33 +1,49 @@
-#include <bits/stdc++.h>
-
+#include <algorithm>
+#include <iostream>
+#include <cstdlib>
+#include <cstring>
+#include <cassert>
+#include <cstdio>
+#include <vector>
+#include <cctype>
+#include <string>
+#include <ctime>
+#include <cmath>
+#include <set>
+#include <map>
+ 
+typedef long double LD;
+typedef long long LL;
+ 
 using namespace std;
-
-void solve()
-{
-	long long int n;
-	cin>>n;
-	long long int arr[n];
-	for(long long int i=0;i<n;i++)
-		cin>>arr[i];
-	long long int vatsya=0, petya=0;
-	long long int m;
-	cin>>m;
-	for(long long int i=0;i<m;i++)
-	{
-		long long int query;
-		cin>>query;
-		for(long long int j=0;j<n;j++)
-			if(query==arr[j])
-			{
-				vatsya+=j+1;
-				petya+=(n-j);
-			}
-	}
-	cout<<vatsya<<" "<<petya<<"\n";
-	
-}
-
-int main()
-{
-	solve();
+ 
+#define sz(A) (int)(A).size()
+#define mp make_pair
+#define pb push_back
+ 
+const int N = int(1e5 + 3);
+ 
+int n, m, pos[N];
+ 
+int main() {
+        scanf("%d", &n);       
+        for (int i = 0; i < n; i++) {
+                int num;
+                scanf("%d", &num);
+                pos[num] = i + 1;
+        }      
+ 
+        LL sum1 = 0, sum2 = 0;
+ 
+        scanf("%d", &m);       
+        for (int i = 0; i < m; i++)     {
+                int q;
+                scanf("%d", &q);
+                sum1 += pos[q];
+                sum2 += n - pos[q] + 1;                        
+        }
+ 
+        printf("%I64d %I64d\n", sum1, sum2);
+ 
+        return 0;
 }
